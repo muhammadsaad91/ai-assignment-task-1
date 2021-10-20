@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <p id="currentDay"></p>
+    <p id="currentTime"></p>
+</head>
+
+<body>
+    <script>
+        let date_object = new Date();
+        let current_day = date_object.getDay();
+        let day = ""
+        if (current_day == 0) {
+            day = "Sunday";
+        }
+        else if (current_day == 1) {
+            day = "Monday";
+        }
+        else if (current_day == 2) {
+            day = "Tuesday";
+        }
+        else if (current_day == 3) {
+            day = "Wednesday";
+        }
+        else if (current_day == 4) {
+            day = "Thursday";
+        }
+        else if (current_day == 5) {
+            day = "Friday";
+        }
+        else if (current_day == 6) {
+            day = "Saturday";
+        }
+        document.getElementById("currentDay").innerText = `Today is : ${day}.`
+        var currentHour = date_object.getHours();
+        var minutes = date_object.getMinutes();
+        var seconds = date_object.getSeconds();
+        var ampm = currentHour >= 12 ? 'PM' : 'AM';
+        currentHour = currentHour % 12;
+        currentHour = currentHour ? currentHour : 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = currentHour + ':' + minutes + ' ' + ampm;
+        var currentTime = `Current time is : ${currentHour} ${ampm} : ${minutes} : ${seconds}`
+        document.getElementById("currentTime").innerText = currentTime;
+    </script>
+</body>
+
+</html>
